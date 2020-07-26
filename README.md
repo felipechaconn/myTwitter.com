@@ -43,3 +43,67 @@ In this episode, we begin with the initial project setup.
 ## Design Main
 
 Before we can dive into writing the core logic, let's first set aside fifteen minutes or so to design the main timeline page, using Tailwind (Check home and app blades).
+
+## Make the Timeline Dynamic
+
+Now that we have a nice - but static - layout in place, we can begin making the different sections dynamic. We'll begin with the core of our application: tweets!
+
+1. First we going to create factory, model and controller Tweet with this command.
+
+    ```bash
+         php artisan make:model Tweet -fmc
+    ```
+
+2. Then we going to define the rows in migration like these:
+
+    ```php
+     public function up()
+    {
+        Schema::create('tweets', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id');
+            $table->string('body');
+            $table->timestamps();
+        });
+    }
+
+    ```
+
+3. Also we create a factory like that:
+
+    ```php
+    $factory->define(Tweet::class, function (Faker $faker) {
+        return [
+        'user_id'=> factory(App\User::class),
+        'body'=> $factory->sentence
+        ];
+    });
+    ```
+
+4. We can execute the factory like that:
+
+    ```bash
+    php artisan tinker
+    factory('App\Tweet')->create();
+    ```
+
+5. Inside Home Controller we need something like that:
+
+    ```php
+    public function index()
+    {
+        $tweets = Tweet::latest()->get();
+        return view('home',[
+            'tweets' => auth()->user()->timeline()
+        ]);
+    }
+    ```
+
+6. We'll create a method inside UserController like that:
+    this method return the las tweet that i write
+
+    ```php
+     public function timeline() {
+        return Tweet::where('user_id', $this->id)->latest()->get();
+    }
+    ```

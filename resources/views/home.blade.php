@@ -10,13 +10,9 @@
 
 
         <div class="border border-grat-300 rounded-lg">
-            @include('_tweet')
-            @include('_tweet')
-            @include('_tweet')
-            @include('_tweet')
-            @include('_tweet')
-            @include('_tweet')
-
+            @foreach ($tweets as $tweet)
+                @include('_tweet')   
+            @endforeach
         </div>
 
     </div>
