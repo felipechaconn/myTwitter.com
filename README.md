@@ -37,4 +37,9 @@ In this episode, we begin with the initial project setup.
     require('tailwindcss'),
     ])
     ```
+
 7. Create  in resources main/main.css and run 'npm run dev'.
+
+## Design Main
+
+Before we can dive into writing the core logic, let's first set aside fifteen minutes or so to design the main timeline page, using Tailwind (Check home and app blades).
