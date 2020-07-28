@@ -16,16 +16,4 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        $tweets = Tweet::latest()->get();
-        return view('home',[
-            'tweets' => auth()->user()->timeline()
-        ]);
-    }
 }

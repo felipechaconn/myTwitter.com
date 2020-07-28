@@ -107,3 +107,16 @@ Now that we have a nice - but static - layout in place, we can begin making the 
         return Tweet::where('user_id', $this->id)->latest()->get();
     }
     ```
+
+## Expanding the Timeline
+
+Now that we have the necessary functionality to follow other Tweety users, we can fully expand the timeline to include all relevant posts.
+Before that we'll create a middlaware to secure the routes. We'll have to do something like tath:
+
+    ```php
+    Route::middleware('auth')->group(function(){
+    Route::get('/tweets', 'TweetController@index')->name('home');
+    Route::post('/tweets', 'TweetController@store');
+});
+    ```
+
