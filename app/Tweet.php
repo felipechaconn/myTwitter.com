@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Likable;
 use Illuminate\Database\Eloquent\Model;
 
 class Tweet extends Model

@@ -30,9 +30,12 @@
             <button class="font-bold text-lg">Logout</button>
         </form>
     </li>
+    @auth 
     <li>
-    <a class="font-bold text-lg mb-4 block"  href="{{ current_user()->path() }}">
+    <a class="font-bold text-lg mb-4 block"   href="{{ current_user()->path() }}">
             Profile
         </a>
     </li>
+    @endauth
+
 </ul>
