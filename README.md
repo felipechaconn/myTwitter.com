@@ -124,9 +124,10 @@ Before that we'll create a middlaware to secure the routes. We'll have to do som
 
 In these method we create the follow procedure, we have to create a new controller, new model and new view
 
-##  Profile Authorization
+## Profile Authorization
 
 Before we build a form to edit a user's profile, we must first ensure that the proper authorization is in place.
 
 ## File Storage and Custom Avatars
+
 As part of creating a form to edit a user's profile, let's also finally add support for custom avatars. This will give us a chance to review Laravel's file storage functionality.

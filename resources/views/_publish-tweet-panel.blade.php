@@ -5,7 +5,7 @@
         ></textarea>
         <hr class="my-4">
         <footer class="flex justify-between">
-        <img  src="{{ current_user()->avatar }}"
+        <img  src=""
                 alt="Your avatar"
                 class="rounded-full mr-2"
                 width="50"
