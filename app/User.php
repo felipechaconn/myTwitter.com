@@ -8,16 +8,13 @@ use Illuminate\Notifications\Notifiable;
 use App\Tweet;
 class User extends Authenticatable
 {
-    use Notifiable;
     use Notifiable, Followable;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -53,16 +50,16 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class);
     }
 
-    public function getAvatarAttribute() {
-        return "https://i.pravatar.cc/200?u=". $this->email;
+    public function getAvatarAttribute($value) {
+        return asset($value)
     }
 
     public function path($append = '')
     {
-        $path = route('profile', $this->name);
+        $path = route('profile', $this->username);
 
 
-        
+
         return $append ? "{$path}/{$append}" : $path;
     }
 
