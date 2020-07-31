@@ -8,7 +8,6 @@ class TweetController extends Controller
 {
     public function index()
     {
-        $tweets = Tweet::latest()->get();
         return view('tweets.index',[
             'tweets' => auth()->user()->timeline()
         ]);
@@ -21,7 +20,7 @@ class TweetController extends Controller
             'body' => $attributes['body']
         ]);
 
-        return redirect('/home');
+        return redirect()->route('home');
     }
    
 }

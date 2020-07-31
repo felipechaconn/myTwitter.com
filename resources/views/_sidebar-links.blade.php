@@ -30,7 +30,7 @@
         </a>
     </li>
     <li>
-    <a class="font-bold text-lg mb-4 block" href="{{route('profile', auth()->user())}}">
+    <a class="font-bold text-lg mb-4 block" href="{{ auth()->user()->path() }}">
             Profile
         </a>
     </li>

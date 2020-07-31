@@ -120,3 +120,6 @@ Before that we'll create a middlaware to secure the routes. We'll have to do som
 });
     ```
 
+## Creating Follow Methods
+
+In these method we create the follow procedure, we have to create a new controller, new model and new view
